@@ -82,11 +82,11 @@ install_mbedtls(){
     if [ -f /usr/lib/libmbedtls.a ];then
         echo "\033[1;32mMbedTLS already installed, skip.\033[0m"
     else
-        if [ ! -f mbedtls-$MBEDTLS_VER-gpl.tgz ];then
-            wget https://github.com/criz16/tw/blob/main/mbedtls-$MBEDTLS_VER-gpl.tgz   
+        if [ ! -f mbedtls-2.16.3.zip ];then
+            wget https://github.com/criz16/shadowsocks-with-v2ray-plugin-install/blob/master/mbedtls-2.16.3.zip
         fi
-        tar xf mbedtls-$MBEDTLS_VER-gpl.tgz
-        cd mbedtls-$MBEDTLS_VER
+        unzip mbedtls-2.16.3.zip
+        cd mbedtls-2.16.3
         make SHARED=1 CFLAGS=-fPIC
         make DESTDIR=/usr install
         cd ..
